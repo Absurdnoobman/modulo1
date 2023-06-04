@@ -11,10 +11,30 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       home: Scaffold(
-        body: Center(
-          child: box,
-        ),
+        body: Modulo()
       ),
+    );
+  }
+}
+
+class Modulo extends StatefulWidget {
+  const Modulo({super.key});
+
+  @override
+  State<Modulo> createState() => _ModuloState();
+}
+
+class _ModuloState extends State<Modulo> {
+  @override
+  Widget build(BuildContext context) {
+    return const Row(
+      children: [
+        Text(
+          "หารเอาเศษ", 
+          textAlign: TextAlign.center,
+        ),
+        
+      ],
     );
   }
 }
