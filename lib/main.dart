@@ -47,8 +47,7 @@ class _ModuloState extends State<Modulo> {
     //   super.dispose();
     // }
 
-    return Center(
-        child: Column(
+    return Column(
       children: [
         const Padding(
           padding: EdgeInsets.only(top: 100.0, bottom: 50.0),
@@ -64,9 +63,12 @@ class _ModuloState extends State<Modulo> {
         ),
         Row(
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(5.5),
+            Expanded(
               child: TextField(
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'a',
+                ),
                 onChanged: (value) {
                   a = int.parse(value);
                 },
@@ -75,6 +77,6 @@ class _ModuloState extends State<Modulo> {
           ],
         )
       ],
-    ));
+    );
   }
 }
