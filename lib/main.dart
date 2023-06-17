@@ -11,14 +11,13 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text("Hello world"),
-        ),
-        body: const Center(
-          child: Modulo(),
-        ) 
-      ),
+          appBar: AppBar(
+            centerTitle: true,
+            title: const Text("Hello world"),
+          ),
+          body: const Center(
+            child: Modulo(),
+          )),
     );
   }
 }
@@ -30,14 +29,17 @@ class Modulo extends StatefulWidget {
 }
 
 class _ModuloState extends State<Modulo> {
-  // void calculate() {
-
-  // }
-
+  num a = 3;
+  num b = 3;
+  String result = "";
   @override
   Widget build(BuildContext context) {
-    int a;
-    int b;
+    
+    // calculate() {
+    //   if (a != null && b != null) {
+    //     result = (a! % b!).toString();
+    //   }
+    // }
 
     // final myController = TextEditingController();
 
@@ -66,25 +68,65 @@ class _ModuloState extends State<Modulo> {
                 ),
               ),
             )),
-        Row(
-          children: <Widget>[
-            Expanded(
-              // padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-              child: TextField(
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'a',
+        Padding(
+          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Expanded(
+                // padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                child: TextField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'a',
+                  ),
+                  keyboardType: TextInputType.number,
+                  onChanged: (value) {
+                    var err = num.tryParse(value);
+                    if (err != null) {
+                      a = err;
+                    }
+                  },
                 ),
-                keyboardType: TextInputType.number,
-                onChanged: (value) {
-                  var err = int.parse(value);
-                  if(true){
-
-                  }
-                },
               ),
-            ),
-          ],
+              Container(
+                width: 8.5,
+              ),
+              Expanded(
+                // padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                child: TextField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'b',
+                  ),
+                  keyboardType: TextInputType.number,
+                  onChanged: (value) {
+                    var err = num.tryParse(value);
+                    if (err != null) {
+                      b = err;
+                    }
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+        TextButton(
+          onPressed: () { 
+            setState(() {
+              var r = a % b;
+              result = r.toString();
+            });
+            
+          }, 
+          
+          style: ButtonStyle(
+            foregroundColor: MaterialStateProperty.all<Color>(Colors.blue)
+          ),
+          child: const Text("Find Result"),
+        ),
+        Center(
+          child: Text("The result is $result"),
         )
       ],
     );
