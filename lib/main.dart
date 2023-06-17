@@ -15,7 +15,9 @@ class MainApp extends StatelessWidget {
           centerTitle: true,
           title: const Text("Hello world"),
         ),
-        body: const Modulo()
+        body: const Center(
+          child: Modulo(),
+        ) 
       ),
     );
   }
@@ -73,8 +75,12 @@ class _ModuloState extends State<Modulo> {
                   border: OutlineInputBorder(),
                   labelText: 'a',
                 ),
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
-                  a = int.parse(value);
+                  var err = int.parse(value);
+                  if(true){
+
+                  }
                 },
               ),
             ),
