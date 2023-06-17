@@ -9,8 +9,14 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(body: Modulo()),
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text("Hello world"),
+        ),
+        body: const Modulo()
+      ),
     );
   }
 }
@@ -22,14 +28,12 @@ class Modulo extends StatefulWidget {
 }
 
 class _ModuloState extends State<Modulo> {
-
   // void calculate() {
-    
+
   // }
 
   @override
   Widget build(BuildContext context) {
-
     int a;
     int b;
 
@@ -50,20 +54,20 @@ class _ModuloState extends State<Modulo> {
     return Column(
       children: [
         const Padding(
-          padding: EdgeInsets.only(top: 100.0, bottom: 50.0),
-          child: Expanded(
-            child: Text(
-              "หารเอาเศษ",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 24,
+            padding: EdgeInsets.only(top: 100.0, bottom: 50.0),
+            child: Expanded(
+              child: Text(
+                "หารเอาเศษ",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 24,
+                ),
               ),
-            ),
-          )
-        ),
+            )),
         Row(
           children: <Widget>[
             Expanded(
+              // padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
               child: TextField(
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
@@ -73,7 +77,7 @@ class _ModuloState extends State<Modulo> {
                   a = int.parse(value);
                 },
               ),
-            )
+            ),
           ],
         )
       ],
